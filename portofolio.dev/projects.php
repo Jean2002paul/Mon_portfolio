@@ -6,14 +6,14 @@
         <p class="lead text-center">Voici quelques réalisations en développement web et mobile.</p>
 
         <div class="row">
-            <!-- Projet Web -->
+            <!-- Projet Bibliothèque en ligne -->
             <div class="col-md-4">
                 <div class="card project-card">
-                    <img src="assets/images/project-web.jpg" alt="Projet Web" class="project-img">
+                    <img src="assets\images\Capture d’écran (89).png" alt="Bibliothèque en ligne" class="project-img">
                     <div class="card-body">
-                        <h3>💻 Site E-commerce</h3>
-                        <p>Développement d’une plateforme de vente en ligne avec Laravel et Stripe.</p>
-                        <a href="#" class="btn btn-info">Voir le projet</a>
+                        <h3>📚 Bibliothèque en ligne</h3>
+                        <p>Plateforme interactive permettant aux utilisateurs de rechercher et emprunter des livres.</p>
+                        <a href="https://github.com/SAEI-CUBE/projet-dclic-oif-cube-togo-2025-aneho-xolanyo.zialengor.bibliotheque-ligne" class="btn btn-info">Voir le projet</a>
                     </div>
                 </div>
             </div>
@@ -21,11 +21,11 @@
             <!-- Projet Mobile -->
             <div class="col-md-4">
                 <div class="card project-card">
-                    <img src="assets/images/project-mobile.jpg" alt="Projet Mobile" class="project-img">
+                    <img src="assets\images\01.jpg" alt="Projet Mobile" class="project-img">
                     <div class="card-body">
                         <h3>📱 Application Mobile</h3>
                         <p>Création d’une app Flutter intégrant Firebase pour la gestion des utilisateurs.</p>
-                        <a href="#" class="btn btn-info">Voir le projet</a>
+                        <a href="https://github.com/SAEI-CUBE/projet-dclic-oif-cube-togo-2025-aneho-xolanyo.zialengor.favoris-app" class="btn btn-info">Voir le projet</a>
                     </div>
                 </div>
             </div>
@@ -42,6 +42,7 @@
                 </div>
             </div>
 
+            <!-- Projet Gestion de Garage -->
             <div class="col-md-4">
                 <div class="card project-card">
                     <img src="assets\images\Capture d’écran (34).png" alt="Gestion de Garage" class="project-img">
@@ -55,6 +56,5 @@
         </div>
     </div>
 </section>
-
 
 <?php include("includes/footer.php"); ?>

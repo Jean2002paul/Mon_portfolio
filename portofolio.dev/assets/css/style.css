@@ -221,6 +221,16 @@ a:hover {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
     background: rgba(0, 188, 212, 0.15);
 }
+.project-library {
+    background: rgba(0, 188, 212, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.project-library:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00bcd4;
+}
 
 .project-card:hover {
     transform: scale(1.05);
@@ -249,4 +259,32 @@ a:hover {
     transform: scale(1.05);
 }
 
+.fade-out {
+    animation: fadeOut 8s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.social-media {
+    padding: 50px 0;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 15px;
+    color: white;
+    transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+.social-icon i {
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #00bcd4;
+}
 

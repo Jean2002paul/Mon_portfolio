@@ -1,8 +1,6 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+require 'config.php'; // Fichier de connexion à la base de données
 
-require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST["name"]);
@@ -10,31 +8,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST["message"]);
 
     if (!empty($name) && !empty($email) && !empty($message)) {
-        $mail = new PHPMailer(true);
-        try {
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'zialengorlouis@gmail.com';  // Remplace par ton email
-            $mail->Password = 'tonmotdepasse';  // Ton mot de passe ou App Password Gmail
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
+        $stmt = $conn->prepare("INSERT INTO messages (name, email, message) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $name, $email, $message);
 
-            $mail->setFrom($email, $name);
-            $mail->addAddress('zialengorlouis@gmail.com'); // Ton email de réception
-            $mail->Subject = "📩 Nouveau message de $name";
-            $mail->Body = "Nom: $name\nEmail: $email\n\nMessage:\n$message";
-
-            $mail->send();
-            $successMessage = "<div class='alert alert-success text-center mt-3'>✅ Message envoyé avec succès !</div>";
-        } catch (Exception $e) {
-            $errorMessage = "<div class='alert alert-danger text-center mt-3'>❌ Erreur d'envoi : {$mail->ErrorInfo}</div>";
+        if ($stmt->execute()) {
+            echo "<div class='alert alert-success text-center mt-3' id='fadeMessage'>✅ Message reçu avec succès ! Nous vous répondrons dans les plus brefs délais.</div>";
+        } else {
+            echo "<div class='alert alert-danger text-center mt-3'>❌ Erreur lors de l'enregistrement.</div>";
         }
+
+        $stmt->close();
     } else {
-        $errorMessage = "<div class='alert alert-warning text-center mt-3'>⚠️ Tous les champs doivent être remplis.</div>";
+        echo "<div class='alert alert-warning text-center mt-3'>⚠️ Tous les champs doivent être remplis.</div>";
     }
 }
 ?>
+
+<script>
+    // Fonction pour faire disparaître le message après 8 secondes
+    setTimeout(() => {
+        const message = document.getElementById('fadeMessage');
+        if (message) {
+            message.style.transition = "opacity 1s";
+            message.style.opacity = "0";
+            setTimeout(() => message.remove(), 1000);
+        }
+    }, 8000);
+</script>
+
+
 
 <?php include("includes/header.php"); ?>
 
@@ -63,5 +65,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 </section>
+
+<section class="social-media mt-5">
+    <div class="container">
+        <h2 class="text-center fw-bold">🌍 Suivez-moi sur les réseaux</h2>
+        <p class="lead text-center">Restons connectés sur mes plateformes sociales !</p>
+
+        <div class="row justify-content-center">
+            <div class="col-md-2 text-center">
+                <a href="https://wa.me/96438002" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp fa-3x"></i>
+                </a>
+            </div>
+            <div class="col-md-2 text-center">
+                <a href="https://facebook.com/jeanpaul.zialengor/" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook fa-3x"></i>
+                </a>
+            </div>
+            <div class="col-md-2 text-center">
+                <a href="https://www.linkedin.com/in/tonpseudo" target="_blank" class="social-icon linkedin">
+                    <i class="fab fa-linkedin fa-3x"></i>
+                </a>
+            </div>
+            <div class="col-md-2 text-center">
+                <a href="https://instagram.com/tonpseudo" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram fa-3x"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <?php include("includes/footer.php"); ?>
