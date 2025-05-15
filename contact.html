@@ -59,7 +59,7 @@
             color: white;
             padding: 1rem 0;
         }
-         @media (max-width: 768px) {
+        @media (max-width: 768px) {
             .nav-menu ul {
                 flex-direction: column;
                 gap: 0.5rem;
@@ -84,15 +84,20 @@
 </head>
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="about.html">À Propos</a></li>
-            <li><a href="projects.html">Projets</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<header class="main-header">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="logo">
+            <a href="index.html" style="color:white; text-decoration:none; font-weight:bold; font-size:1.5rem;">JP Zialengor</a>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="projects.html">Projets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <section class="contact" data-aos="fade-up">
@@ -100,7 +105,7 @@
         <h2 class="text-center fw-bold mb-4">📩 Contactez-moi</h2>
         <p class="lead text-center mb-5">Besoin d’un projet web ou mobile ? Envoyez-moi un message !</p>
 
-        <form action="https://formsubmit.co/zialengor@gmail.com" method="POST" class="contact-form">
+        <form action="https://formspree.io/f/xdkgypla?redirect=https://jean2002paul.github.io/Portfolio-jean-paul/contact-success.html" method="POST" class="contact-form">
             <div class="mb-3">
                 <label for="name" class="form-label">Nom</label>
                 <input type="text" class="form-control" id="name" name="name" required>
@@ -127,22 +132,22 @@
 
         <div class="row justify-content-center">
             <div class="col-6 col-md-2 mb-4 text-center">
-                <a href="https://wa.me/96438002" target="_blank" class="social-icon">
+                <a href="https://wa.me/96438002" target="_blank" class="social-icon" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp fa-3x"></i>
                 </a>
             </div>
             <div class="col-6 col-md-2 mb-4 text-center">
-                <a href="https://facebook.com/jeanpaul.zialengor/" target="_blank" class="social-icon">
+                <a href="https://facebook.com/jeanpaul.zialengor/" target="_blank" class="social-icon" aria-label="Facebook">
                     <i class="fab fa-facebook fa-3x"></i>
                 </a>
             </div>
             <div class="col-6 col-md-2 mb-4 text-center">
-                <a href="https://www.linkedin.com/in/tonpseudo" target="_blank" class="social-icon">
+                <a href="https://www.linkedin.com/in/tonpseudo" target="_blank" class="social-icon" aria-label="LinkedIn">
                     <i class="fab fa-linkedin fa-3x"></i>
                 </a>
             </div>
             <div class="col-6 col-md-2 mb-4 text-center">
-                <a href="https://instagram.com/tonpseudo" target="_blank" class="social-icon">
+                <a href="https://instagram.com/tonpseudo" target="_blank" class="social-icon" aria-label="Instagram">
                     <i class="fab fa-instagram fa-3x"></i>
                 </a>
             </div>
@@ -151,7 +156,7 @@
 </section>
 
 <footer>
-    <p class="text-center">© 2025 Jean Paul Louis - Tous droits réservés</p>
+    <p class="text-center mb-0">© 2025 Jean Paul Louis - Tous droits réservés</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
